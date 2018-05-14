@@ -21,8 +21,7 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests",
-            "Tests\\Functional\\BehatContext\\": "features/bootstrap",
-            "DemoApp\\": "features/demo_app/src"
+            "Tests\\Functional\\BehatContext\\": "features/bootstrap"
         }
     },
     "require": {
