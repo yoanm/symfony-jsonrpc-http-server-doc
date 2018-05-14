@@ -1,0 +1,3 @@
+services:
+  json_rpc_http_server_doc.provider.chain_provider:
+    class: Yoanm\SymfonyJsonRpcHttpServerDoc\Provider\ChainNormalizedDocProvider
