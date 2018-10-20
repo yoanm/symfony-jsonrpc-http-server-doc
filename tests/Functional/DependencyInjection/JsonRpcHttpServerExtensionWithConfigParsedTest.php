@@ -80,34 +80,34 @@ class JsonRpcHttpServerExtensionWithConfigParsedTest extends AbstractTestClass
 
         // MethodA and aliases
         $this->assertContainerBuilderHasServiceDefinitionWithMethodCall(
-            self::EXPECTED_SERVICE_NAME_RESOLVER_SERVICE_ID,
+            self::EXPECTED_METHOD_RESOLVER_SERVICE_ID,
             'addMethodMapping',
             [$methodAName, $serviceA]
         );
         $this->assertContainerBuilderHasServiceDefinitionWithMethodCall(
-            self::EXPECTED_SERVICE_NAME_RESOLVER_SERVICE_ID,
+            self::EXPECTED_METHOD_RESOLVER_SERVICE_ID,
             'addMethodMapping',
             [$methodAAlias1, $serviceA]
         );
         $this->assertContainerBuilderHasServiceDefinitionWithMethodCall(
-            self::EXPECTED_SERVICE_NAME_RESOLVER_SERVICE_ID,
+            self::EXPECTED_METHOD_RESOLVER_SERVICE_ID,
             'addMethodMapping',
             [$methodAAlias2, $serviceA]
         );
         // MethodB and alias
         $this->assertContainerBuilderHasServiceDefinitionWithMethodCall(
-            self::EXPECTED_SERVICE_NAME_RESOLVER_SERVICE_ID,
+            self::EXPECTED_METHOD_RESOLVER_SERVICE_ID,
             'addMethodMapping',
             [$methodBName, $serviceB]
         );
         $this->assertContainerBuilderHasServiceDefinitionWithMethodCall(
-            self::EXPECTED_SERVICE_NAME_RESOLVER_SERVICE_ID,
+            self::EXPECTED_METHOD_RESOLVER_SERVICE_ID,
             'addMethodMapping',
             [$methodBAlias, $serviceB]
         );
         // MethodC
         $this->assertContainerBuilderHasServiceDefinitionWithMethodCall(
-            self::EXPECTED_SERVICE_NAME_RESOLVER_SERVICE_ID,
+            self::EXPECTED_METHOD_RESOLVER_SERVICE_ID,
             'addMethodMapping',
             [$methodCName, $serviceC]
         );

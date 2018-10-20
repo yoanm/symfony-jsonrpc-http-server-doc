@@ -2,18 +2,18 @@
 namespace Yoanm\SymfonyJsonRpcHttpServerDoc\Creator;
 
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Yoanm\JsonRpcServer\Domain\JsonRpcMethodAwareInterface;
 use Yoanm\JsonRpcServer\Domain\JsonRpcMethodInterface;
-use Yoanm\JsonRpcServerDoc\Model\HttpServerDoc;
-use Yoanm\JsonRpcServerDoc\Model\MethodDoc;
-use Yoanm\JsonRpcServerDoc\Model\ServerDoc;
-use Yoanm\SymfonyJsonRpcHttpServer\Model\MethodMappingAwareInterface;
+use Yoanm\JsonRpcServerDoc\Domain\Model\HttpServerDoc;
+use Yoanm\JsonRpcServerDoc\Domain\Model\MethodDoc;
+use Yoanm\JsonRpcServerDoc\Domain\Model\ServerDoc;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Event\MethodDocCreatedEvent;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Event\ServerDocCreatedEvent;
 
 /**
  * Class HttpServerDocCreator
  */
-class HttpServerDocCreator implements MethodMappingAwareInterface
+class HttpServerDocCreator implements JsonRpcMethodAwareInterface
 {
     /** @var EventDispatcherInterface */
     private $dispatcher;
@@ -36,7 +36,7 @@ class HttpServerDocCreator implements MethodMappingAwareInterface
      *
      * @return HttpServerDoc
      */
-    public function create($host = null)
+    public function create($host = null) : HttpServerDoc
     {
         $serverDoc = new HttpServerDoc();
         if (null !== $this->jsonRpcEndpoint) {
@@ -51,13 +51,13 @@ class HttpServerDocCreator implements MethodMappingAwareInterface
         $event = new ServerDocCreatedEvent($serverDoc);
         $this->dispatcher->dispatch($event::EVENT_NAME, $event);
 
-        return $event->getDoc();
+        return $serverDoc;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function addMethodMapping($methodName, JsonRpcMethodInterface $method)
+    public function addJsonRpcMethod(string $methodName, JsonRpcMethodInterface $method) : void
     {
         $this->methodList[$methodName] = $method;
     }
@@ -69,9 +69,10 @@ class HttpServerDocCreator implements MethodMappingAwareInterface
     {
         foreach ($this->methodList as $methodName => $method) {
             $event = (
-            new MethodDocCreatedEvent(
-                new MethodDoc($methodName)
-            ))
+                new MethodDocCreatedEvent(
+                    new MethodDoc($methodName)
+                )
+            )
                 ->setMethod($method);
 
             $this->dispatcher->dispatch($event::EVENT_NAME, $event);

@@ -30,21 +30,6 @@ class JsonRpcHttpServerExtensionTest extends AbstractTestClass
         $this->assertNotNull((new JsonRpcHttpServerExtension())->getXsdValidationBasePath());
     }
 
-    public function testShouldExposeServiceNameResolverService()
-    {
-        $this->load();
-
-        $this->assertContainerBuilderHasService(
-            self::EXPECTED_SERVICE_NAME_RESOLVER_SERVICE_ID,
-            ServiceNameResolver::class
-        );
-
-        // Check that service is accessible through the container
-        $this->assertNotNull($this->container->get(self::EXPECTED_SERVICE_NAME_RESOLVER_SERVICE_ID));
-
-        $this->assertEndpointIsUsable();
-    }
-
     public function testShouldAliasPSR11MethodResolverByDefault()
     {
         $this->load();
@@ -109,7 +94,7 @@ class JsonRpcHttpServerExtensionTest extends AbstractTestClass
 
         // Assert that method mapping have been correctly injected
         $this->assertContainerBuilderHasServiceDefinitionWithMethodCall(
-            self::EXPECTED_SERVICE_NAME_RESOLVER_SERVICE_ID,
+            self::EXPECTED_METHOD_RESOLVER_SERVICE_ID,
             'addMethodMapping',
             [
                 $methodName,
@@ -119,7 +104,7 @@ class JsonRpcHttpServerExtensionTest extends AbstractTestClass
         );
         // Assert that method mapping have been correctly injected
         $this->assertContainerBuilderHasServiceDefinitionWithMethodCall(
-            self::EXPECTED_SERVICE_NAME_RESOLVER_SERVICE_ID,
+            self::EXPECTED_METHOD_RESOLVER_SERVICE_ID,
             'addMethodMapping',
             [
                 $methodName2,
@@ -154,7 +139,7 @@ class JsonRpcHttpServerExtensionTest extends AbstractTestClass
 
         // Assert that no method mapping have been added
         $this->assertEmpty(
-            $this->container->getDefinition(self::EXPECTED_SERVICE_NAME_RESOLVER_SERVICE_ID)->getMethodCalls()
+            $this->container->getDefinition(self::EXPECTED_METHOD_RESOLVER_SERVICE_ID)->getMethodCalls()
         );
 
         $this->assertEndpointIsUsable();

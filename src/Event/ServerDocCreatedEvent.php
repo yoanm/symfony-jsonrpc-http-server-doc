@@ -1,14 +1,14 @@
 <?php
 namespace Yoanm\SymfonyJsonRpcHttpServerDoc\Event;
 
-use Yoanm\JsonRpcServerDoc\Model\ServerDoc;
+use Yoanm\JsonRpcServerDoc\Domain\Model\ServerDoc;
 
 /**
  * Class ServerDocCreatedEvent
  */
 class ServerDocCreatedEvent extends DocEvent
 {
-    const EVENT_NAME = 'json_rpc_http_server.server_doc_created';
+    const EVENT_NAME = 'json_rpc_http_server_doc.server_doc_created';
 
     /** @var ServerDoc */
     private $doc;
@@ -24,7 +24,7 @@ class ServerDocCreatedEvent extends DocEvent
     /**
      * @return ServerDoc
      */
-    public function getDoc()
+    public function getDoc() : ServerDoc
     {
         return $this->doc;
     }
@@ -34,7 +34,7 @@ class ServerDocCreatedEvent extends DocEvent
      *
      * @return ServerDocCreatedEvent
      */
-    public function setDoc(ServerDoc $doc)
+    public function setDoc(ServerDoc $doc) : ServerDocCreatedEvent
     {
         $this->doc = $doc;
 

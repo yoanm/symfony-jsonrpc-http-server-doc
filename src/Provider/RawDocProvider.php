@@ -1,7 +1,7 @@
 <?php
 namespace Yoanm\SymfonyJsonRpcHttpServerDoc\Provider;
 
-use Yoanm\JsonRpcServerDoc\Normalizer\HttpServerDocNormalizer;
+use Yoanm\JsonRpcServerDoc\Infra\Normalizer\HttpServerDocNormalizer;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Creator\HttpServerDocCreator;
 
 /**

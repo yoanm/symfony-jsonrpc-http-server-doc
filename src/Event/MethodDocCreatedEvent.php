@@ -2,14 +2,14 @@
 namespace Yoanm\SymfonyJsonRpcHttpServerDoc\Event;
 
 use Yoanm\JsonRpcServer\Domain\JsonRpcMethodInterface;
-use Yoanm\JsonRpcServerDoc\Model\MethodDoc;
+use Yoanm\JsonRpcServerDoc\Domain\Model\MethodDoc;
 
 /**
  * Class MethodDocCreatedEvent
  */
 class MethodDocCreatedEvent extends DocEvent
 {
-    const EVENT_NAME = 'json_rpc_http_server.method_doc_created';
+    const EVENT_NAME = 'json_rpc_http_server_doc.method_doc_created';
 
     /** @var MethodDoc */
     private $doc;

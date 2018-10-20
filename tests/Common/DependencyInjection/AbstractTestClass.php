@@ -10,7 +10,7 @@ abstract class AbstractTestClass extends AbstractExtensionTestCase
 {
     // Public services
     const EXPECTED_ENDPOINT_SERVICE_ID = 'json_rpc_http_server.endpoint';
-    const EXPECTED_SERVICE_NAME_RESOLVER_SERVICE_ID = 'json_rpc_http_server.resolver.service_name';
+    const EXPECTED_METHOD_RESOLVER_SERVICE_ID = 'json_rpc_server_prs11_resolver.method';
 
     // Public tags
     const EXPECTED_METHOD_RESOLVER_TAG = 'json_rpc_http_server.method_resolver';
@@ -35,6 +35,9 @@ abstract class AbstractTestClass extends AbstractExtensionTestCase
 
     protected function load(array $configurationValues = [])
     {
+        // Inject event dispatcher
+        $this->setDefinition('event_dispatcher', new Definition(EventDispatcher::class));
+
         parent::load($configurationValues);
 
         // And then compile container to have correct injection
