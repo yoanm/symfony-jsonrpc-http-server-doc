@@ -11,7 +11,7 @@ services:
     class: Yoanm\SymfonyJsonRpcHttpServerDoc\Creator\HttpServerDocCreator
     arguments:
       - '@event_dispatcher'
-      - '%json_rpc_http_server.http_endpoint_path%'
+      - '%json_rpc_http_server_doc.http_endpoint_path%'
     tags: ['json_rpc_http_server.method_aware']
 
   json_rpc_http_server_doc.provider:

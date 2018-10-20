@@ -11,7 +11,7 @@ interface DocProviderInterface
      *
      * @return array
      */
-    public function getDoc($host = null);
+    public function getDoc($host = null) : array;
 
     /**
      * $param string      $filename
@@ -19,5 +19,5 @@ interface DocProviderInterface
      *
      * @return bool
      */
-    public function supports($filename, $host = null);
+    public function supports($filename, $host = null) : bool;
 }

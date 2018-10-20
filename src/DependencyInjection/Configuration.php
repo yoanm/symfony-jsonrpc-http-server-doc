@@ -26,7 +26,6 @@ class Configuration implements ConfigurationInterface
                     ->info('Your custom http doc endpoint path')
                     ->treatNullLike(self::DEFAULT_ENDPOINT)
                     ->defaultValue(self::DEFAULT_ENDPOINT)
-                    ->isRequired()
                 ->end()
             ->end()
         ;

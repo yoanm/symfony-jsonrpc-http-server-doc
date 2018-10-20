@@ -25,7 +25,7 @@ class ServerDocCreatedListener
         $addParamsValidationError = true;
         // Search for existing error in server errors list (could have been already defined by an another bundle
         // (@see "yoanm/symfony-jsonrpc-params-sf-constraints-doc" package
-        foreach($event->getDoc()->getServerErrorList() as $serverError) {
+        foreach ($event->getDoc()->getServerErrorList() as $serverError) {
             if (JsonRpcInvalidParamsException::CODE === $serverError->getCode()) {
                 $addParamsValidationError = false;
                 break;

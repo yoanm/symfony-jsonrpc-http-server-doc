@@ -18,8 +18,10 @@ class RawDocProvider implements DocProviderInterface
      * @param HttpServerDocCreator    $HttpServerDocCreator
      * @param HttpServerDocNormalizer $serverDocNormalizer
      */
-    public function __construct(HttpServerDocCreator $HttpServerDocCreator, HttpServerDocNormalizer $serverDocNormalizer)
-    {
+    public function __construct(
+        HttpServerDocCreator $HttpServerDocCreator,
+        HttpServerDocNormalizer $serverDocNormalizer
+    ) {
         $this->HttpServerDocCreator = $HttpServerDocCreator;
         $this->serverDocNormalizer = $serverDocNormalizer;
     }
@@ -29,7 +31,7 @@ class RawDocProvider implements DocProviderInterface
      *
      * @return array
      */
-    public function getDoc($host = null)
+    public function getDoc($host = null) : array
     {
         return $this->serverDocNormalizer->normalize(
             $this->HttpServerDocCreator->create($host)
@@ -39,7 +41,7 @@ class RawDocProvider implements DocProviderInterface
     /**
      * {@inheritdoc}
      */
-    public function supports($filename, $host = null)
+    public function supports($filename, $host = null) : bool
     {
         return 'raw.json' === $filename;
     }
