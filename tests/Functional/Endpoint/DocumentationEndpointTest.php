@@ -2,11 +2,9 @@
 namespace Tests\Functional\Endpoint;
 
 use PHPUnit\Framework\TestCase;
-use Prophecy\Argument;
 use Prophecy\Prophecy\ObjectProphecy;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Yoanm\JsonRpcServer\Infra\Endpoint\JsonRpcEndpoint as SDKJsonRpcEndpoint;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Endpoint\DocumentationEndpoint;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Finder\NormalizedDocFinder;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Provider\RawDocProvider;

@@ -2,13 +2,9 @@
 namespace Tests\Functional\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\Definition;
-use Symfony\Component\DependencyInjection\Exception\LogicException;
 use Symfony\Component\DependencyInjection\Reference;
 use Tests\Common\DependencyInjection\AbstractTestClass;
 use Tests\Common\DependencyInjection\ConcreteDocProvider;
-use Tests\Common\DependencyInjection\ConcreteJsonRpcServerDispatcherAware;
-use Tests\Common\Mock\ConcreteParamsValidator;
-use Yoanm\JsonRpcServer\App\Dispatcher\JsonRpcServerDispatcherAwareTrait;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\DependencyInjection\JsonRpcHttpServerDocExtension;
 
 /**
@@ -50,7 +46,7 @@ class JsonRpcHttpServerDocExtensionTest extends AbstractTestClass
         $this->assertNotNull((new JsonRpcHttpServerDocExtension())->getXsdValidationBasePath());
     }
 
-    public function testShouldBindServerDispatcherToDispatcherAwareService()
+    public function testShouldBindDocProviderToNormalizedDocFinder()
     {
         $docProviderServiceId =  'my-doc-provider';
         $docProviderServiceDefinition = new Definition(ConcreteDocProvider::class);
@@ -62,7 +58,7 @@ class JsonRpcHttpServerDocExtensionTest extends AbstractTestClass
 
         // Assert custom resolver is an alias of the stub
         $this->assertContainerBuilderHasServiceDefinitionWithMethodCall(
-            self::EXPECTED_CHAIN_PROVIDER_SERVICE_ID,
+            self::EXPECTED_NORMALIZED_DOC_FINDER_SERVICE_ID,
             'addProvider',
             [new Reference($docProviderServiceId)],
             0
