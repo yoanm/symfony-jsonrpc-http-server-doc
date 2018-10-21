@@ -13,7 +13,7 @@ services:
       - '@event_dispatcher'
       - '%json_rpc_http_server_doc.http_endpoint_path%'
     tags:
-      - 'json_rpc_server_psr11_resolver.method_aware' # From yoanm/symfony-jsonrpc-server-psr11-resolver through yoanm/jsonrpc-server-sdk
+      - 'json_rpc_http_server.method_aware' # From yoanm/symfony-jsonrpc-http-server
 
   json_rpc_http_server_doc.provider:
     class: Yoanm\SymfonyJsonRpcHttpServerDoc\Provider\RawDocProvider

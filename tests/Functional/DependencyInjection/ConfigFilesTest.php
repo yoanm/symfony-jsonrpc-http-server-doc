@@ -8,6 +8,7 @@ use Yoanm\JsonRpcServerDoc\Infra\Normalizer\MethodDocNormalizer;
 use Yoanm\JsonRpcServerDoc\Infra\Normalizer\ServerDocNormalizer;
 use Yoanm\JsonRpcServerDoc\Infra\Normalizer\TagDocNormalizer;
 use Yoanm\JsonRpcServerDoc\Infra\Normalizer\TypeDocNormalizer;
+use Yoanm\SymfonyJsonRpcHttpServer\DependencyInjection\JsonRpcHttpServerExtension;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Creator\HttpServerDocCreator;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\DependencyInjection\JsonRpcHttpServerDocExtension;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Endpoint\DocumentationEndpoint;
@@ -54,13 +55,13 @@ class ConfigFilesTest extends AbstractTestClass
     {
         $serviceId = 'json_rpc_http_server_doc.creator.http_server';
 
-        // From yoanm/symfony-jsonrpc-server-psr11-resolver through yoanm/jsonrpc-server-sdk
-        $psr11ResolverTag = 'json_rpc_server_psr11_resolver.method_aware';
-
         $this->load();
 
-
-        $this->assertContainerBuilderHasServiceDefinitionWithTag($serviceId, $psr11ResolverTag);
+        // From yoanm/symfony-jsonrpc-http-server
+        $this->assertContainerBuilderHasServiceDefinitionWithTag(
+            $serviceId,
+            JsonRpcHttpServerExtension::JSONRPC_METHOD_AWARE_TAG
+        );
     }
 
     /**

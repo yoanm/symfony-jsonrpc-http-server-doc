@@ -25,6 +25,9 @@
       "Tests\\Functional\\BehatContext\\": "features/bootstrap"
     }
   },
+  "suggest": {
+    "yoanm/symfony-jsonrpc-server-psr11-resolver": ""
+  },
   "require": {
     "php": ">=7.1",
     "yoanm/jsonrpc-server-sdk": "dev-release/3.0.0",
