@@ -4,6 +4,7 @@ namespace Yoanm\SymfonyJsonRpcHttpServerDoc\Endpoint;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Finder\NormalizedDocFinder;
+use Yoanm\SymfonyJsonRpcHttpServerDoc\Provider\RawDocProvider;
 
 /**
  * Class DocumentationEndpoint
@@ -53,7 +54,8 @@ class DocumentationEndpoint
      */
     public function httpGet(Request $request) : Response
     {
-        $filename = $request->get('filename');
+        // Use Raw doc by default if not provided
+        $filename = $request->get('filename') ?? RawDocProvider::SUPPORTED_FILENAME;
         $response = new Response();
         $response->headers->set('Content-Type', 'application/json');
 

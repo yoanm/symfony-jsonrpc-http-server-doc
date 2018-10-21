@@ -14,6 +14,8 @@ class RawDocProvider implements DocProviderInterface
     /** @var HttpServerDocNormalizer */
     private $serverDocNormalizer;
 
+    const SUPPORTED_FILENAME = 'raw.json';
+
     /**
      * @param HttpServerDocCreator    $HttpServerDocCreator
      * @param HttpServerDocNormalizer $serverDocNormalizer
@@ -43,6 +45,6 @@ class RawDocProvider implements DocProviderInterface
      */
     public function supports($filename, $host = null) : bool
     {
-        return 'raw.json' === $filename;
+        return self::SUPPORTED_FILENAME === $filename;
     }
 }

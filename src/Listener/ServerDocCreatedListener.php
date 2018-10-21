@@ -22,16 +22,6 @@ class ServerDocCreatedListener
      */
     public function appendJsonRpcServerErrorsDoc(ServerDocCreatedEvent $event) : void
     {
-        $addParamsValidationError = true;
-        // Search for existing error in server errors list (could have been already defined by an another bundle
-        // (@see "yoanm/symfony-jsonrpc-params-sf-constraints-doc" package
-        foreach ($event->getDoc()->getServerErrorList() as $serverError) {
-            if (JsonRpcInvalidParamsException::CODE === $serverError->getCode()) {
-                $addParamsValidationError = false;
-                break;
-            }
-        }
-
         $event->getDoc()
             ->addServerError( // Parse Error
                 new ErrorDoc('Parse error', JsonRpcParseErrorException::CODE)
@@ -43,6 +33,16 @@ class ServerDocCreatedListener
                 (new ErrorDoc('Method not found', JsonRpcMethodNotFoundException::CODE))
             )
         ;
+
+        $addParamsValidationError = true;
+        // Search for existing error in server errors list (could have been already defined by an another bundle)
+        // @see "yoanm/symfony-jsonrpc-params-sf-constraints-doc" package
+        foreach ($event->getDoc()->getServerErrorList() as $serverError) {
+            if (JsonRpcInvalidParamsException::CODE === $serverError->getCode()) {
+                $addParamsValidationError = false;
+                break;
+            }
+        }
 
         if (true === $addParamsValidationError) {
             $event->getDoc()->addServerError( // Params validations error

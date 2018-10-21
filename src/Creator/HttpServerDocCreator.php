@@ -24,9 +24,9 @@ class HttpServerDocCreator implements JsonRpcMethodAwareInterface
 
     /**
      * @param EventDispatcherInterface $dispatcher
-     * @param null $jsonRpcEndpoint
+     * @param string|null              $jsonRpcEndpoint
      */
-    public function __construct(EventDispatcherInterface $dispatcher, $jsonRpcEndpoint = null)
+    public function __construct(EventDispatcherInterface $dispatcher, string $jsonRpcEndpoint = null)
     {
         $this->dispatcher = $dispatcher;
         $this->jsonRpcEndpoint = $jsonRpcEndpoint;

@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Yoanm\JsonRpcServer\Infra\Endpoint\JsonRpcEndpoint as SDKJsonRpcEndpoint;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Endpoint\DocumentationEndpoint;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Finder\NormalizedDocFinder;
+use Yoanm\SymfonyJsonRpcHttpServerDoc\Provider\RawDocProvider;
 
 /**
  * @covers \Yoanm\SymfonyJsonRpcHttpServerDoc\Endpoint\DocumentationEndpoint
@@ -49,6 +50,35 @@ class DocumentationEndpointTest extends TestCase
         ;
 
         $this->normalizedDocFinder->findFor($filename, $host)
+            ->willReturn($doc)
+            ->shouldBeCalled();
+
+        $response = $this->endpoint->httpGet($request->reveal());
+
+        $this->assertSame(Response::HTTP_OK, $response->getStatusCode());
+        $this->assertSame($expectedResponseContent, $response->getContent());
+        $this->assertSame('application/json', $response->headers->get('Content-Type'));
+    }
+
+    public function testHttPostShouldHaveUseRawDocIfNoFilenameProvided()
+    {
+        $defaultRawDocFilename = RawDocProvider::SUPPORTED_FILENAME;
+        $host = 'host';
+        $doc = ['doc'];
+        $expectedResponseContent = json_encode($doc);
+
+        /** @var Request|ObjectProphecy $request */
+        $request = $this->prophesize(Request::class);
+
+        $request->get('filename')
+            ->willReturn(null)
+            ->shouldBeCalled();
+        $request->getHttpHost()
+            ->willReturn($host)
+            ->shouldBeCalled()
+        ;
+
+        $this->normalizedDocFinder->findFor($defaultRawDocFilename, $host)
             ->willReturn($doc)
             ->shouldBeCalled();
 
