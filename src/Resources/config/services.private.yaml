@@ -1,0 +1,3 @@
+services:
+  json_rpc_http_server_doc.finder.normalized_doc:
+    class: Yoanm\SymfonyJsonRpcHttpServerDoc\Finder\NormalizedDocFinder
