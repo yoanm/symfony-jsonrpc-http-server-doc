@@ -10,7 +10,7 @@ use Yoanm\SymfonyJsonRpcHttpServerDoc\Creator\HttpServerDocCreator;
 class RawDocProvider implements DocProviderInterface
 {
     /** @var HttpServerDocCreator */
-    private $HttpServerDocCreator;
+    private $httpServerDocCreator;
     /** @var HttpServerDocNormalizer */
     private $serverDocNormalizer;
 
@@ -22,7 +22,7 @@ class RawDocProvider implements DocProviderInterface
         HttpServerDocCreator $HttpServerDocCreator,
         HttpServerDocNormalizer $serverDocNormalizer
     ) {
-        $this->HttpServerDocCreator = $HttpServerDocCreator;
+        $this->httpServerDocCreator = $HttpServerDocCreator;
         $this->serverDocNormalizer = $serverDocNormalizer;
     }
 
@@ -34,7 +34,7 @@ class RawDocProvider implements DocProviderInterface
     public function getDoc($host = null) : array
     {
         return $this->serverDocNormalizer->normalize(
-            $this->HttpServerDocCreator->create($host)
+            $this->httpServerDocCreator->create($host)
         );
     }
 

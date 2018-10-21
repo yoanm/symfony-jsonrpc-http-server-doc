@@ -3,25 +3,25 @@ namespace Yoanm\SymfonyJsonRpcHttpServerDoc\Endpoint;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Yoanm\SymfonyJsonRpcHttpServerDoc\Provider\ChainNormalizedDocProvider;
+use Yoanm\SymfonyJsonRpcHttpServerDoc\Finder\NormalizedDocFinder;
 
 /**
  * Class DocumentationEndpoint
  */
 class DocumentationEndpoint
 {
-    /** @var ChainNormalizedDocProvider */
-    private $normalizedDocProvider;
+    /** @var NormalizedDocFinder */
+    private $normalizedDocFinder;
 
     /** @var string[] */
     private $allowedMethodList = [];
 
     /**
-     * @param ChainNormalizedDocProvider $normalizedDocProvider
+     * @param NormalizedDocFinder $normalizedDocFinder
      */
-    public function __construct(ChainNormalizedDocProvider $normalizedDocProvider)
+    public function __construct(NormalizedDocFinder $normalizedDocFinder)
     {
-        $this->normalizedDocProvider = $normalizedDocProvider;
+        $this->normalizedDocFinder = $normalizedDocFinder;
         $this->allowedMethodList = [Request::METHOD_GET, Request::METHOD_OPTIONS];
     }
 
@@ -57,13 +57,9 @@ class DocumentationEndpoint
         $response = new Response();
         $response->headers->set('Content-Type', 'application/json');
 
-        try {
-            $doc = $this->normalizedDocProvider->getFor($filename, $request->getHttpHost());
-            $response->setContent(json_encode($doc));
-        } catch (\Exception $exception) {
-            $response->setContent($exception->getMessage());
-            $response->setStatusCode(Response::HTTP_INTERNAL_SERVER_ERROR);
-        }
+        $doc = $this->normalizedDocFinder->findFor($filename, $request->getHttpHost());
+
+        $response->setContent(json_encode($doc));
 
         return $response;
     }

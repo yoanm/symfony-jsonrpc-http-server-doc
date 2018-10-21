@@ -73,7 +73,7 @@ class JsonRpcHttpServerDocExtension implements ExtensionInterface, CompilerPassI
      */
     private function appendDocumentationProvider(ContainerBuilder $container)
     {
-        $docProviderDefinition = $container->getDefinition('json_rpc_http_server_doc.provider.chain_provider');
+        $docProviderDefinition = $container->getDefinition('json_rpc_http_server_doc.finder.normalized_doc');
         $docCreatorServiceList = $container->findTaggedServiceIds(self::DOC_PROVIDER_TAG);
         foreach (array_keys($docCreatorServiceList) as $serviceId) {
             $docProviderDefinition->addMethodCall('addProvider', [new Reference($serviceId)]);

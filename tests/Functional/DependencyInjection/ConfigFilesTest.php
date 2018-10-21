@@ -11,6 +11,7 @@ use Yoanm\JsonRpcServerDoc\Infra\Normalizer\TypeDocNormalizer;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Creator\HttpServerDocCreator;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\DependencyInjection\JsonRpcHttpServerDocExtension;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Endpoint\DocumentationEndpoint;
+use Yoanm\SymfonyJsonRpcHttpServerDoc\Finder\NormalizedDocFinder;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Provider\ChainNormalizedDocProvider;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Provider\RawDocProvider;
 
@@ -119,9 +120,9 @@ class ConfigFilesTest extends AbstractTestClass
     public function provideBundlePrivateServiceIdAndClass()
     {
         return [
-            'Bundle - Private - HTTP doc endpoint' => [
-                'serviceId' => 'json_rpc_http_server_doc.provider.chain_provider',
-                'serviceClassName' => ChainNormalizedDocProvider::class,
+            'Bundle - Private - NormalizedDocFinder' => [
+                'serviceId' => 'json_rpc_http_server_doc.finder.normalized_doc',
+                'serviceClassName' => NormalizedDocFinder::class,
                 'public' => false,
             ],
         ];

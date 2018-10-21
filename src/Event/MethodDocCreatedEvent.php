@@ -27,7 +27,7 @@ class MethodDocCreatedEvent extends DocEvent
     /**
      * @return MethodDoc
      */
-    public function getDoc()
+    public function getDoc() : MethodDoc
     {
         return $this->doc;
     }
@@ -35,7 +35,7 @@ class MethodDocCreatedEvent extends DocEvent
     /**
      * @return null|JsonRpcMethodInterface
      */
-    public function getMethod()
+    public function getMethod() : ?JsonRpcMethodInterface
     {
         return $this->method;
     }
@@ -45,7 +45,7 @@ class MethodDocCreatedEvent extends DocEvent
      *
      * @return MethodDocCreatedEvent
      */
-    public function setMethod(JsonRpcMethodInterface $method)
+    public function setMethod(JsonRpcMethodInterface $method) : MethodDocCreatedEvent
     {
         $this->method = $method;
 
@@ -57,7 +57,7 @@ class MethodDocCreatedEvent extends DocEvent
      *
      * @return MethodDocCreatedEvent
      */
-    public function setDoc(MethodDoc $doc)
+    public function setDoc(MethodDoc $doc) : MethodDocCreatedEvent
     {
         $this->doc = $doc;
 

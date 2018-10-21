@@ -4,7 +4,7 @@ services:
 
   json_rpc_http_server_doc.endpoint:
     class: Yoanm\SymfonyJsonRpcHttpServerDoc\Endpoint\DocumentationEndpoint
-    arguments: ['@json_rpc_http_server_doc.provider.chain_provider']
+    arguments: ['@json_rpc_http_server_doc.finder.normalized_doc']
 
 
   json_rpc_http_server_doc.creator.http_server:

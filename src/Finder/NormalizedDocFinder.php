@@ -1,10 +1,12 @@
 <?php
-namespace Yoanm\SymfonyJsonRpcHttpServerDoc\Provider;
+namespace Yoanm\SymfonyJsonRpcHttpServerDoc\Finder;
+
+use Yoanm\SymfonyJsonRpcHttpServerDoc\Provider\DocProviderInterface;
 
 /**
- * Class ChainNormalizedDocProvider
+ * Class NormalizedDocFinder
  */
-class ChainNormalizedDocProvider
+class NormalizedDocFinder
 {
     /** @var DocProviderInterface[] */
     private $normalizedDocProviderList = [];
@@ -23,9 +25,9 @@ class ChainNormalizedDocProvider
      *
      * @return array
      *
-     * @throws \Exception
+     * @throws \Exception In case no provider found
      */
-    public function getFor(string $filename, $host)
+    public function findFor(string $filename, $host) : array
     {
         foreach ($this->normalizedDocProviderList as $provider) {
             if (true === $provider->supports($filename, $host)) {

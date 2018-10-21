@@ -12,7 +12,7 @@ abstract class AbstractTestClass extends AbstractExtensionTestCase
 {
     const EXPECTED_DOC_PROVIDER_TAG = 'json_rpc_server_doc.doc_provider';
     const EXPECTED_EXTENSION_IDENTIFIER = 'json_rpc_http_server_doc';
-    const EXPECTED_CHAIN_PROVIDER_SERVICE_ID = 'json_rpc_http_server_doc.provider.chain_provider';
+    const EXPECTED_CHAIN_PROVIDER_SERVICE_ID = 'json_rpc_http_server_doc.finder.normalized_doc';
 
     // Public services
     const EXPECTED_ENDPOINT_SERVICE_ID = 'json_rpc_http_server_doc.endpoint';
