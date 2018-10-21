@@ -2,13 +2,9 @@
 namespace Tests\Functional\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\Definition;
-use Symfony\Component\DependencyInjection\Exception\LogicException;
 use Symfony\Component\DependencyInjection\Reference;
 use Tests\Common\DependencyInjection\AbstractTestClass;
 use Tests\Common\DependencyInjection\ConcreteDocProvider;
-use Tests\Common\DependencyInjection\ConcreteJsonRpcServerDispatcherAware;
-use Tests\Common\Mock\ConcreteParamsValidator;
-use Yoanm\JsonRpcServer\App\Dispatcher\JsonRpcServerDispatcherAwareTrait;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\DependencyInjection\JsonRpcHttpServerDocExtension;
 
 /**

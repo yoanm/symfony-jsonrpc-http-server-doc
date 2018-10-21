@@ -1,14 +1,12 @@
 <?php
 namespace Tests\Functional\Creator;
 
-use Grpc\Server;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Prophecy\Prophecy\ObjectProphecy;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Yoanm\JsonRpcServer\Domain\JsonRpcMethodInterface;
 use Yoanm\JsonRpcServerDoc\Domain\Model\MethodDoc;
-use Yoanm\JsonRpcServerDoc\Domain\Model\ServerDoc;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Creator\HttpServerDocCreator;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Event\MethodDocCreatedEvent;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Event\ServerDocCreatedEvent;
