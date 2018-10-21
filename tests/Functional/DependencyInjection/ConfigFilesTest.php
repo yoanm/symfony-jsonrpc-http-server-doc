@@ -12,7 +12,6 @@ use Yoanm\SymfonyJsonRpcHttpServerDoc\Creator\HttpServerDocCreator;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\DependencyInjection\JsonRpcHttpServerDocExtension;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Endpoint\DocumentationEndpoint;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Finder\NormalizedDocFinder;
-use Yoanm\SymfonyJsonRpcHttpServerDoc\Provider\ChainNormalizedDocProvider;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Provider\RawDocProvider;
 
 /**
@@ -49,6 +48,19 @@ class ConfigFilesTest extends AbstractTestClass
             // Check that service is accessible through the container
             $this->assertNotNull($this->container->get($serviceId));
         }
+    }
+
+    public function testHttpServerDocCreatorShouldHaveMethodsMappingAwareTag()
+    {
+        $serviceId = 'json_rpc_http_server_doc.creator.http_server';
+
+        // From yoanm/symfony-jsonrpc-server-psr11-resolver through yoanm/jsonrpc-server-sdk
+        $psr11ResolverTag = 'json_rpc_server_psr11_resolver.method_aware';
+
+        $this->load();
+
+
+        $this->assertContainerBuilderHasServiceDefinitionWithTag($serviceId, $psr11ResolverTag);
     }
 
     /**
