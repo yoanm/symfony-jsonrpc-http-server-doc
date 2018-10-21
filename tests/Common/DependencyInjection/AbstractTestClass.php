@@ -6,6 +6,7 @@ use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Tests\Common\Mock\ConcreteResolver;
 use Yoanm\JsonRpcServer\Domain\JsonRpcMethodResolverInterface;
+use Yoanm\SymfonyJsonRpcHttpServer\DependencyInjection\JsonRpcHttpServerExtension;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\DependencyInjection\JsonRpcHttpServerDocExtension;
 
 abstract class AbstractTestClass extends AbstractExtensionTestCase
@@ -34,6 +35,12 @@ abstract class AbstractTestClass extends AbstractExtensionTestCase
     {
         // Inject event dispatcher
         $this->setDefinition('event_dispatcher', new Definition(EventDispatcher::class));
+
+        // Mock json-rpc endpoint path
+        $this->container->setParameter(
+            JsonRpcHttpServerExtension::ENDPOINT_PATH_CONTAINER_PARAM_ID,
+            '/fake-endpoint'
+        );
 
         if (true == $mockResolver) {
             $this->mockResolver();
