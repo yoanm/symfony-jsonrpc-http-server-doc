@@ -27,11 +27,9 @@ class DocumentationEndpoint
     }
 
     /**
-     * @param Request $request
-     *
      * @return Response
      */
-    public function httpOptions(Request $request) : Response
+    public function httpOptions() : Response
     {
         $response = new Response();
         $response->headers->set('Content-Type', 'application/json');
