@@ -1,3 +1,12 @@
 services:
   json_rpc_http_server_doc.finder.normalized_doc:
     class: Yoanm\SymfonyJsonRpcHttpServerDoc\Finder\NormalizedDocFinder
+
+  json_rpc_http_server_doc.listener.server_doc_created:
+    class: Yoanm\SymfonyJsonRpcHttpServerDoc\Listener\ServerDocCreatedListener
+    tags:
+      -
+        name: 'kernel.event_listener'
+        event: 'json_rpc_http_server_doc.server_doc_created'
+        method: 'appendJsonRpcServerErrorsDoc'
+

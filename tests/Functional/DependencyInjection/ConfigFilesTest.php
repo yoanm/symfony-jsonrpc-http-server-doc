@@ -8,11 +8,11 @@ use Yoanm\JsonRpcServerDoc\Infra\Normalizer\MethodDocNormalizer;
 use Yoanm\JsonRpcServerDoc\Infra\Normalizer\ServerDocNormalizer;
 use Yoanm\JsonRpcServerDoc\Infra\Normalizer\TagDocNormalizer;
 use Yoanm\JsonRpcServerDoc\Infra\Normalizer\TypeDocNormalizer;
+use Yoanm\SymfonyJsonRpcHttpServer\DependencyInjection\JsonRpcHttpServerExtension;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Creator\HttpServerDocCreator;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\DependencyInjection\JsonRpcHttpServerDocExtension;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Endpoint\DocumentationEndpoint;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Finder\NormalizedDocFinder;
-use Yoanm\SymfonyJsonRpcHttpServerDoc\Provider\ChainNormalizedDocProvider;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Provider\RawDocProvider;
 
 /**
@@ -49,6 +49,19 @@ class ConfigFilesTest extends AbstractTestClass
             // Check that service is accessible through the container
             $this->assertNotNull($this->container->get($serviceId));
         }
+    }
+
+    public function testHttpServerDocCreatorShouldHaveMethodsMappingAwareTag()
+    {
+        $serviceId = 'json_rpc_http_server_doc.creator.http_server';
+
+        $this->load();
+
+        // From yoanm/symfony-jsonrpc-http-server
+        $this->assertContainerBuilderHasServiceDefinitionWithTag(
+            $serviceId,
+            JsonRpcHttpServerExtension::JSONRPC_METHOD_AWARE_TAG
+        );
     }
 
     /**

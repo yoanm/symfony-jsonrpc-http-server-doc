@@ -12,7 +12,8 @@ services:
     arguments:
       - '@event_dispatcher'
       - '%json_rpc_http_server_doc.http_endpoint_path%'
-    tags: ['json_rpc_http_server.method_aware']
+    tags:
+      - 'json_rpc_http_server.method_aware' # From yoanm/symfony-jsonrpc-http-server
 
   json_rpc_http_server_doc.provider:
     class: Yoanm\SymfonyJsonRpcHttpServerDoc\Provider\RawDocProvider
