@@ -22,18 +22,15 @@
   "autoload-dev": {
     "psr-4": {
       "Tests\\": "tests",
-      "Tests\\Functional\\BehatContext\\": "features/bootstrap"
+      "Tests\\Functional\\BehatContext\\": "features/bootstrap",
+      "DemoApp\\": "features/demo_app/src"
     }
-  },
-  "suggest": {
-    "yoanm/symfony-jsonrpc-server-psr11-resolver": ""
   },
   "require": {
     "php": ">=7.1",
     "yoanm/jsonrpc-server-sdk": "dev-release/3.0.0",
     "yoanm/jsonrpc-server-doc-sdk": "dev-release/1.0.0",
     "yoanm/symfony-jsonrpc-http-server": "dev-release/2.0.0",
-    "symfony/http-foundation": "^3.0 || ^4.0",
     "symfony/http-kernel": "^3.0 || ^4.0",
     "symfony/config": "^3.0 || ^4.0",
     "symfony/dependency-injection": "^3.0 || ^4.0"
