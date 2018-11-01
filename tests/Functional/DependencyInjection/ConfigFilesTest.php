@@ -22,16 +22,6 @@ use Yoanm\SymfonyJsonRpcHttpServerDoc\Provider\RawDocProvider;
 class ConfigFilesTest extends AbstractTestClass
 {
     /**
-     * {@inheritdoc}
-     */
-    protected function getContainerExtensions()
-    {
-        return [
-            new JsonRpcHttpServerDocExtension()
-        ];
-    }
-
-    /**
      * @dataProvider provideSDKInfraServiceIdAndClass
      * @dataProvider provideBundlePublicServiceIdAndClass
      * @dataProvider provideBundlePrivateServiceIdAndClass
