@@ -15,7 +15,7 @@ services:
   json_rpc_http_server.alias.method_resolver: '@resolver'
 
   # MethodDocCreated Listener
-  method_doc_created.listener:
+  server_doc_created.listener:
     class: DemoApp\Listener\ServerDocCreatedListener
     tags:
       - name: 'kernel.event_listener'

@@ -15,7 +15,7 @@ use Yoanm\JsonRpcServer\Domain\JsonRpcMethodInterface;
 /**
  * Defines application features from the specific context.
  */
-class DemoAppContext implements Context
+class DemoAppContext extends AbstractContext
 {
     /** @var Response|null */
     private $lastResponse;
@@ -65,8 +65,8 @@ class DemoAppContext implements Context
         Assert::assertInstanceOf(Response::class, $this->lastResponse);
         // Decode payload to get ride of indentation, spacing, etc
         Assert::assertEquals(
-            json_decode($payload->getRaw(), true),
-            json_decode($this->lastResponse->getContent(), true)
+            $this->jsonDecode($payload->getRaw()),
+            $this->jsonDecode($this->lastResponse->getContent())
         );
         Assert::assertSame((int) $httpCode, $this->lastResponse->getStatusCode());
     }

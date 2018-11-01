@@ -12,17 +12,6 @@ use Yoanm\SymfonyJsonRpcHttpServerDoc\DependencyInjection\JsonRpcHttpServerDocEx
  */
 class JsonRpcHttpServerDocExtensionTest extends AbstractTestClass
 {
-    /**
-     * {@inheritdoc}
-     */
-    protected function getContainerExtensions()
-    {
-        return [
-            new JsonRpcHttpServerDocExtension()
-        ];
-    }
-
-
     public function testShouldBeLoadable()
     {
         $this->load();
