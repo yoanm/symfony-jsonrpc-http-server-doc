@@ -14,7 +14,7 @@ interface DocProviderInterface
     public function getDoc($host = null) : array;
 
     /**
-     * $param string      $filename
+     * @param string      $filename
      * @param string|null $host
      *
      * @return bool

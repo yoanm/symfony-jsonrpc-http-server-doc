@@ -49,6 +49,8 @@ class DocumentationEndpoint
      * @param Request $request
      *
      * @return Response
+     *
+     * @throws \Exception
      */
     public function httpGet(Request $request) : Response
     {

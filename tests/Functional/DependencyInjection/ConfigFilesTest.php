@@ -10,7 +10,6 @@ use Yoanm\JsonRpcServerDoc\Infra\Normalizer\TagDocNormalizer;
 use Yoanm\JsonRpcServerDoc\Infra\Normalizer\TypeDocNormalizer;
 use Yoanm\SymfonyJsonRpcHttpServer\DependencyInjection\JsonRpcHttpServerExtension;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Creator\HttpServerDocCreator;
-use Yoanm\SymfonyJsonRpcHttpServerDoc\DependencyInjection\JsonRpcHttpServerDocExtension;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Endpoint\DocumentationEndpoint;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Finder\NormalizedDocFinder;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Provider\RawDocProvider;

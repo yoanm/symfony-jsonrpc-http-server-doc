@@ -1,7 +1,6 @@
 <?php
 namespace Tests\Functional\BehatContext;
 
-use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\PyStringNode;
 use DemoApp\AbstractKernel;
 use DemoApp\DefaultKernel;

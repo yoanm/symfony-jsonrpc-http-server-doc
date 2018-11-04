@@ -1,8 +1,6 @@
 <?php
 namespace DemoApp\Listener;
 
-use DemoApp\Method\MethodB;
-use Yoanm\JsonRpcServerDoc\Domain\Model\Type\ArrayDoc;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Event\ServerDocCreatedEvent;
 
 /**
