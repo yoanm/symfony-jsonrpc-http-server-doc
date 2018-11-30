@@ -30,7 +30,7 @@ class JsonRpcHttpServerDocExtension implements ExtensionInterface, CompilerPassI
 
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
 
-        $loader->load('services.sdk.yaml');
+        $loader->load('services.sdk.infra.yaml');
         $loader->load('services.private.yaml');
         $loader->load('services.public.yaml');
     }
