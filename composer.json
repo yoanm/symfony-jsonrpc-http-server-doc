@@ -26,6 +26,12 @@
       "DemoApp\\": "features/demo_app/src"
     }
   },
+  "suggest": {
+    "yoanm/symfony-jsonrpc-http-server": "Symfony Bundle to convert an HTTP json-rpc request into HTTP json-rpc response",
+    "yoanm/symfony-jsonrpc-params-sf-constraints-doc": "Symfony bundle for easy Symfony constraints to JSON-RPC documentation transformation",
+    "yoanm/symfony-jsonrpc-http-server-openapi-doc": "Symfony bundle for easy JSON-RPC server OpenAPI 3.0.0 documentation",
+    "yoanm/symfony-jsonrpc-http-server-swagger-doc": "Symfony bundle for easy JSON-RPC server Swagger 2.0 documentation"
+  },
   "require": {
     "php": ">=7.1",
     "yoanm/jsonrpc-server-sdk": "dev-release/3.0.0",

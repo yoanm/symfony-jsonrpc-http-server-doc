@@ -1,6 +1,7 @@
 <?php
 namespace Tests\Functional\DependencyInjection;
 
+use DemoApp\Listener\ServerDocCreatedListener;
 use Tests\Common\DependencyInjection\AbstractTestClass;
 use Yoanm\JsonRpcServerDoc\Infra\Normalizer\ErrorDocNormalizer;
 use Yoanm\JsonRpcServerDoc\Infra\Normalizer\HttpServerDocNormalizer;
@@ -125,6 +126,11 @@ class ConfigFilesTest extends AbstractTestClass
             'Bundle - Private - NormalizedDocFinder' => [
                 'serviceId' => 'json_rpc_http_server_doc.finder.normalized_doc',
                 'serviceClassName' => NormalizedDocFinder::class,
+                'public' => false,
+            ],
+            'Bundle - Private - ServerDocCreatedListener' => [
+                'serviceId' => 'json_rpc_http_server_doc.listener.server_doc_created',
+                'serviceClassName' => ServerDocCreatedListener::class,
                 'public' => false,
             ],
         ];
