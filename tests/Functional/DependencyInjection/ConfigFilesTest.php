@@ -1,7 +1,6 @@
 <?php
 namespace Tests\Functional\DependencyInjection;
 
-use DemoApp\Listener\ServerDocCreatedListener;
 use Tests\Common\DependencyInjection\AbstractTestClass;
 use Yoanm\JsonRpcServerDoc\Infra\Normalizer\ErrorDocNormalizer;
 use Yoanm\JsonRpcServerDoc\Infra\Normalizer\HttpServerDocNormalizer;
@@ -13,6 +12,7 @@ use Yoanm\SymfonyJsonRpcHttpServer\DependencyInjection\JsonRpcHttpServerExtensio
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Creator\HttpServerDocCreator;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Endpoint\DocumentationEndpoint;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Finder\NormalizedDocFinder;
+use Yoanm\SymfonyJsonRpcHttpServerDoc\Listener\ServerDocCreatedListener;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Provider\RawDocProvider;
 
 /**
