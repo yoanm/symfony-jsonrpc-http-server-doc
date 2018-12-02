@@ -9,15 +9,6 @@ services:
     tags:
     - { name: 'json_rpc_http_server.jsonrpc_method', method: 'bundledMethodB' }
 
-  ## Resolver mock
-  resolver:
-    class: DemoApp\Resolver\JsonRpcMethodResolver
-    tags: ['json_rpc_http_server.method_aware']
-
-
-  # Alias resolver mock to bundle resolver
-  json_rpc_http_server.alias.method_resolver: '@resolver'
-
   # MethodDocCreated Listener
   method_doc_created.listener:
     class: DemoApp\Listener\MethodDocCreatedListener
