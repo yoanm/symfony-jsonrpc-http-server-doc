@@ -1,0 +1,24 @@
+services:
+  _defaults:
+    public: true
+
+  json_rpc_http_server_doc.endpoint:
+    class: Yoanm\SymfonyJsonRpcHttpServerDoc\Endpoint\DocumentationEndpoint
+    arguments: ['@json_rpc_http_server_doc.finder.normalized_doc']
+
+
+  json_rpc_http_server_doc.creator.http_server:
+    class: Yoanm\SymfonyJsonRpcHttpServerDoc\Creator\HttpServerDocCreator
+    arguments:
+      - '@event_dispatcher'
+      - '%json_rpc_http_server.http_endpoint_path%'
+    tags:
+      - 'json_rpc_http_server.method_aware' # From yoanm/symfony-jsonrpc-http-server
+
+  json_rpc_http_server_doc.provider:
+    class: Yoanm\SymfonyJsonRpcHttpServerDoc\Provider\RawDocProvider
+    arguments:
+      - '@json_rpc_http_server_doc.creator.http_server'
+      - '@json_rpc_server_doc_sdk.normalizer.http_server'
+    tags: ['json_rpc_server_doc.doc_provider']
+

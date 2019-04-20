@@ -1,0 +1,14 @@
+# Configure JSON-RPC method services.
+services:
+  jsonrpc.method.a:
+    class: DemoApp\Method\MethodA
+    tags:
+    - { name: 'json_rpc_http_server.jsonrpc_method', method: 'bundledMethodA' }
+
+  # MethodDocCreated Listener
+  server_doc_created.listener:
+    class: DemoApp\Listener\ServerDocCreatedListener
+    tags:
+      - name: 'kernel.event_listener'
+        event: 'json_rpc_http_server_doc.server_doc_created'
+        method: 'enhanceServerDoc'

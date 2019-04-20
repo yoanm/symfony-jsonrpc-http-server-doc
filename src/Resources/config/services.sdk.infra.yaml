@@ -1,0 +1,32 @@
+services:
+  _defaults:
+    public: true
+
+  json_rpc_server_doc_sdk.normalizer.type:
+    class: Yoanm\JsonRpcServerDoc\Infra\Normalizer\TypeDocNormalizer
+
+  json_rpc_server_doc_sdk.normalizer.error:
+    class: Yoanm\JsonRpcServerDoc\Infra\Normalizer\ErrorDocNormalizer
+    arguments:
+        - '@json_rpc_server_doc_sdk.normalizer.type'
+
+  json_rpc_server_doc_sdk.normalizer.method:
+    class: Yoanm\JsonRpcServerDoc\Infra\Normalizer\MethodDocNormalizer
+    arguments:
+        - '@json_rpc_server_doc_sdk.normalizer.type'
+        - '@json_rpc_server_doc_sdk.normalizer.error'
+
+  json_rpc_server_doc_sdk.normalizer.tag:
+    class: Yoanm\JsonRpcServerDoc\Infra\Normalizer\TagDocNormalizer
+
+  json_rpc_server_doc_sdk.normalizer.server:
+    class: Yoanm\JsonRpcServerDoc\Infra\Normalizer\ServerDocNormalizer
+    arguments:
+        - '@json_rpc_server_doc_sdk.normalizer.method'
+        - '@json_rpc_server_doc_sdk.normalizer.tag'
+        - '@json_rpc_server_doc_sdk.normalizer.error'
+
+  json_rpc_server_doc_sdk.normalizer.http_server:
+    class: Yoanm\JsonRpcServerDoc\Infra\Normalizer\HttpServerDocNormalizer
+    arguments:
+        - '@json_rpc_server_doc_sdk.normalizer.server'
