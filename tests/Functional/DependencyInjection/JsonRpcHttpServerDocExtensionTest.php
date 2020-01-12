@@ -14,7 +14,7 @@ class JsonRpcHttpServerDocExtensionTest extends AbstractTestClass
 {
     public function testShouldBeLoadable()
     {
-        $this->load();
+        $this->loadContainer();
 
         $this->assertEndpointIsUsable();
     }
@@ -43,7 +43,7 @@ class JsonRpcHttpServerDocExtensionTest extends AbstractTestClass
 
         $this->setDefinition($docProviderServiceId, $docProviderServiceDefinition);
 
-        $this->load();
+        $this->loadContainer();
 
         // Assert custom resolver is an alias of the stub
         $this->assertContainerBuilderHasServiceDefinitionWithMethodCall(
