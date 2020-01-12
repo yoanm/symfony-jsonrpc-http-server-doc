@@ -32,7 +32,7 @@ class ConfigFilesTest extends AbstractTestClass
      */
     public function testShouldHaveService($serviceId, $expectedClassName, $public)
     {
-        $this->load(['endpoint' => '/endpoint'], true, false);
+        $this->loadContainer(['endpoint' => '/endpoint'], true, false);
 
         $this->assertContainerBuilderHasService($serviceId, $expectedClassName);
         if (true === $public) {

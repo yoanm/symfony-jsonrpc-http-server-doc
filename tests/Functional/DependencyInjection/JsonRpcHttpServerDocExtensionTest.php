@@ -22,7 +22,7 @@ class JsonRpcHttpServerDocExtensionTest extends AbstractTestClass
     public function testShouldManageCustomEndpointPathFromConfiguration()
     {
         $myCustomEndpoint = 'my-custom-endpoint';
-        $this->load(['endpoint' => $myCustomEndpoint]);
+        $this->loadContainer(['endpoint' => $myCustomEndpoint]);
 
         // Assert custom resolver is an alias of the stub
         $this->assertContainerBuilderHasParameter(self::EXPECTED_HTTP_ENDPOINT_PATH_CONTAINER_PARAM, $myCustomEndpoint);
