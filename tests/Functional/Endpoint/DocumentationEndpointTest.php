@@ -20,7 +20,7 @@ class DocumentationEndpointTest extends TestCase
     /** @var NormalizedDocFinder|ObjectProphecy */
     private $normalizedDocFinder;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->normalizedDocFinder = $this->prophesize(NormalizedDocFinder::class);
 

@@ -23,14 +23,14 @@ abstract class AbstractTestClass extends AbstractExtensionTestCase
     /**
      * {@inheritdoc}
      */
-    protected function getContainerExtensions()
+    protected function getContainerExtensions(): array
     {
         return [
             new JsonRpcHttpServerDocExtension()
         ];
     }
 
-    protected function load(array $configurationValues = [], $mockResolver = true, $compile = true)
+    protected function loadContainer(array $configurationValues = [], $mockResolver = true, $compile = true)
     {
         // Inject event dispatcher
         $this->setDefinition('event_dispatcher', new Definition(EventDispatcher::class));

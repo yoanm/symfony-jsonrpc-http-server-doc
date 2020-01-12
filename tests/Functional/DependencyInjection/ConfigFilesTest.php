@@ -32,7 +32,7 @@ class ConfigFilesTest extends AbstractTestClass
      */
     public function testShouldHaveService($serviceId, $expectedClassName, $public)
     {
-        $this->load(['endpoint' => '/endpoint'], true, false);
+        $this->loadContainer(['endpoint' => '/endpoint'], true, false);
 
         $this->assertContainerBuilderHasService($serviceId, $expectedClassName);
         if (true === $public) {
@@ -45,7 +45,7 @@ class ConfigFilesTest extends AbstractTestClass
     {
         $serviceId = 'json_rpc_http_server_doc.creator.http_server';
 
-        $this->load();
+        $this->loadContainer();
 
         // From yoanm/symfony-jsonrpc-http-server
         $this->assertContainerBuilderHasServiceDefinitionWithTag(
