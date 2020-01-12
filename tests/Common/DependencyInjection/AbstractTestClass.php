@@ -23,7 +23,7 @@ abstract class AbstractTestClass extends AbstractExtensionTestCase
     /**
      * {@inheritdoc}
      */
-    protected function getContainerExtensions(): void
+    protected function getContainerExtensions(): array
     {
         return [
             new JsonRpcHttpServerDocExtension()
