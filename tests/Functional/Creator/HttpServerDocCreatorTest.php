@@ -24,7 +24,7 @@ class HttpServerDocCreatorTest extends TestCase
     /** @var string|null */
     private $jsonRpcEndpoint = 'my-endpoint';
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->dispatcher = $this->prophesize(EventDispatcherInterface::class);
 

@@ -21,7 +21,7 @@ class RawDocProviderTest extends TestCase
     /** @var HttpServerDocNormalizer|ObjectProphecy */
     private $serverDocNormalizer;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->httpServerDocCreator = $this->prophesize(HttpServerDocCreator::class);
         $this->serverDocNormalizer = $this->prophesize(HttpServerDocNormalizer::class);

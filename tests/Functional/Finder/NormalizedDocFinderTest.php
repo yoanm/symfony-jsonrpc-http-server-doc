@@ -14,7 +14,7 @@ class NormalizedDocFinderTest extends TestCase
     /** @var NormalizedDocFinder */
     private $finder;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->finder = new NormalizedDocFinder();
     }

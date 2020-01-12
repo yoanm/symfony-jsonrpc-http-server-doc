@@ -17,7 +17,7 @@ class ServerDocCreatedEventTest extends TestCase
     /** @var ServerDoc|ObjectProphecy */
     private $doc;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->doc = $this->prophesize(ServerDoc::class);
 

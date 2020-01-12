@@ -20,7 +20,7 @@ class MethodDocCreatedEventTest extends TestCase
     /** @var JsonRpcMethodInterface|ObjectProphecy|null */
     private $method;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->doc = $this->prophesize(MethodDoc::class);
         $this->method = $this->prophesize(JsonRpcMethodInterface::class);
