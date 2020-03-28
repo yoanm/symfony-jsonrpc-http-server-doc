@@ -36,6 +36,10 @@ class HttpServerDocCreatorTest extends TestCase
 
     public function testShouldCreateBasicDocWithoutMethods()
     {
+        $this->dispatcher->dispatch(Argument::type(ServerDocCreatedEvent::class), ServerDocCreatedEvent::EVENT_NAME)
+            ->willReturnArgument(0)
+            ->shouldBeCalled();
+
         $doc = $this->creator->create();
 
         $this->assertSame(
@@ -56,6 +60,10 @@ class HttpServerDocCreatorTest extends TestCase
 
     public function testShouldCreateDocWithHost()
     {
+        $this->dispatcher->dispatch(Argument::type(ServerDocCreatedEvent::class), ServerDocCreatedEvent::EVENT_NAME)
+            ->willReturnArgument(0)
+            ->shouldBeCalled();
+
         $host = 'my-host';
         $doc = $this->creator->create($host);
 
@@ -77,6 +85,14 @@ class HttpServerDocCreatorTest extends TestCase
 
     public function testShouldCreateDocWithMethodList()
     {
+        $this->dispatcher->dispatch(Argument::type(ServerDocCreatedEvent::class), ServerDocCreatedEvent::EVENT_NAME)
+            ->willReturnArgument(0)
+            ->shouldBeCalled();
+
+        $this->dispatcher->dispatch(Argument::type(MethodDocCreatedEvent::class), MethodDocCreatedEvent::EVENT_NAME)
+            ->willReturnArgument(0)
+            ->shouldBeCalledTimes(2);
+
         $method1Name = 'method-1';
         $method2Name = 'method-2';
         $method1 = $this->prophesize(JsonRpcMethodInterface::class);
@@ -114,9 +130,11 @@ class HttpServerDocCreatorTest extends TestCase
     {
         $docInEvent = null;
 
-        $this->dispatcher->dispatch(ServerDocCreatedEvent::EVENT_NAME, Argument::type(ServerDocCreatedEvent::class))
+        $this->dispatcher->dispatch(Argument::type(ServerDocCreatedEvent::class), ServerDocCreatedEvent::EVENT_NAME)
             ->will(function ($args) use (&$docInEvent) {
-                $docInEvent = $args[1]->getDoc();
+                $docInEvent = $args[0]->getDoc();
+
+                return $args[0];
             })
             ->shouldBeCalled();
 
@@ -137,33 +155,38 @@ class HttpServerDocCreatorTest extends TestCase
         $this->creator->addJsonRpcMethod($method1Name, $method1->reveal());
         $this->creator->addJsonRpcMethod($method2Name, $method2->reveal());
 
-        $this->dispatcher->dispatch(ServerDocCreatedEvent::EVENT_NAME, Argument::cetera())
-            ->shouldBeCalled()
-        ;
+
+        $this->dispatcher->dispatch(Argument::type(ServerDocCreatedEvent::class), ServerDocCreatedEvent::EVENT_NAME)
+            ->willReturnArgument(0)
+            ->shouldBeCalled();
 
         $this->dispatcher->dispatch(
-            MethodDocCreatedEvent::EVENT_NAME,
             Argument::allOf(
                 Argument::type(MethodDocCreatedEvent::class),
                 Argument::which('getMethod', $method1->reveal())
-            )
+            ),
+            MethodDocCreatedEvent::EVENT_NAME
         )
             ->will(function ($args) use (&$docInEvent1) {
-                $docInEvent1 = $args[1]->getDoc();
+                $docInEvent1 = $args[0]->getDoc();
+
+                return $args[0];
             })
             ->shouldBeCalled();
-
         $this->dispatcher->dispatch(
-            MethodDocCreatedEvent::EVENT_NAME,
             Argument::allOf(
                 Argument::type(MethodDocCreatedEvent::class),
                 Argument::which('getMethod', $method2->reveal())
-            )
+            ),
+            MethodDocCreatedEvent::EVENT_NAME
         )
             ->will(function ($args) use (&$docInEvent2) {
-                $docInEvent2 = $args[1]->getDoc();
+                $docInEvent2 = $args[0]->getDoc();
+
+                return $args[0];
             })
             ->shouldBeCalled();
+
 
         $doc = $this->creator->create();
 
