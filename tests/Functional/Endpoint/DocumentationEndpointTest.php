@@ -89,7 +89,7 @@ class DocumentationEndpointTest extends TestCase
 
     public function testHttOptionsShouldReturnAllowedMethodsAndContentType()
     {
-        $expectedAllowedMethodList = [Request::METHOD_GET, Request::METHOD_OPTIONS];
+        $expectedAllowedMethodList = implode(', ', [Request::METHOD_GET, Request::METHOD_OPTIONS]);
 
         $response = $this->endpoint->httpOptions();
 

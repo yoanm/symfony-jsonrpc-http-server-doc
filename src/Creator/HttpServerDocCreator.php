@@ -1,7 +1,7 @@
 <?php
 namespace Yoanm\SymfonyJsonRpcHttpServerDoc\Creator;
 
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 use Yoanm\JsonRpcServer\Domain\JsonRpcMethodAwareInterface;
 use Yoanm\JsonRpcServer\Domain\JsonRpcMethodInterface;
 use Yoanm\JsonRpcServerDoc\Domain\Model\HttpServerDoc;
@@ -49,7 +49,7 @@ class HttpServerDocCreator implements JsonRpcMethodAwareInterface
         $this->appendMethodsDoc($serverDoc);
 
         $event = new ServerDocCreatedEvent($serverDoc);
-        $this->dispatcher->dispatch($event::EVENT_NAME, $event);
+        $this->dispatcher->dispatch($event, $event::EVENT_NAME);
 
         return $serverDoc;
     }
@@ -75,7 +75,7 @@ class HttpServerDocCreator implements JsonRpcMethodAwareInterface
             )
                 ->setMethod($method);
 
-            $this->dispatcher->dispatch($event::EVENT_NAME, $event);
+            $this->dispatcher->dispatch($event, $event::EVENT_NAME);
 
             $serverDoc->addMethod($event->getDoc());
         }

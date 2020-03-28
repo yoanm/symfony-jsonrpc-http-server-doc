@@ -15,9 +15,9 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
+        $treeBuilder = new TreeBuilder(JsonRpcHttpServerDocExtension::EXTENSION_IDENTIFIER);
 
-        $rootNode = $treeBuilder->root(JsonRpcHttpServerDocExtension::EXTENSION_IDENTIFIER);
+        $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
             ->addDefaultsIfNotSet()
