@@ -7,7 +7,7 @@ use Symfony\Component\Routing\RouteCollectionBuilder;
 
 class KernelWithServerDocCreatedListener extends AbstractKernel
 {
-    public function registerBundles()
+    public function registerBundles(): iterable
     {
         $contents = require $this->getProjectDir().'/'.$this->getConfigDirectory().'/bundles.php';
         foreach ($contents as $class => $envs) {
