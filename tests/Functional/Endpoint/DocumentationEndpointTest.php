@@ -100,10 +100,10 @@ class DocumentationEndpointTest extends TestCase
         $this->assertSame('application/json', $response->headers->get('Content-Type'));
 
         // Check allowed methods
-        $this->assertSame($expectedAllowedMethodList, $response->headers->get('Allow', null, false));
+        $this->assertSame($expectedAllowedMethodList, $response->headers->get('Allow', null));
         $this->assertSame(
             $expectedAllowedMethodList,
-            $response->headers->get('Access-Control-Request-Method', null, false)
+            $response->headers->get('Access-Control-Request-Method', null)
         );
 
         // Check allowed content types
