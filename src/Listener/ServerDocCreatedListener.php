@@ -8,6 +8,7 @@ use Yoanm\JsonRpcServer\Domain\Exception\JsonRpcMethodNotFoundException;
 use Yoanm\JsonRpcServer\Domain\Exception\JsonRpcParseErrorException;
 use Yoanm\JsonRpcServerDoc\Domain\Model\ErrorDoc;
 use Yoanm\JsonRpcServerDoc\Domain\Model\Type\ArrayDoc;
+use Yoanm\JsonRpcServerDoc\Domain\Model\Type\IntegerDoc;
 use Yoanm\JsonRpcServerDoc\Domain\Model\Type\ObjectDoc;
 use Yoanm\JsonRpcServerDoc\Domain\Model\Type\StringDoc;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Event\ServerDocCreatedEvent;
@@ -64,14 +65,25 @@ class ServerDocCreatedListener
             (new ErrorDoc('Internal error', JsonRpcInternalErrorException::CODE))
                 ->setDataDoc(
                     (new ObjectDoc())
-                        ->setAllowMissingSibling(false)
+                        ->setAllowMissingSibling(true)
                         ->setAllowExtraSibling(false)
                         ->setRequired(false)
-                        ->addSibling(
-                            (new StringDoc())
-                                ->setName(JsonRpcInternalErrorException::DATA_PREVIOUS_KEY)
-                                ->setDescription('Previous error message')
-                        )
+                        ->addSibling((
+                            new StringDoc())
+                                ->setName('_class')
+                                ->setDescription('Exception class'))
+                        ->addSibling((
+                            new IntegerDoc())
+                                ->setName('_code')
+                                ->setDescription('Exception code'))
+                        ->addSibling((
+                            new StringDoc())
+                                ->setName('_message')
+                                ->setDescription('Exception message'))
+                        ->addSibling((
+                            new ArrayDoc())
+                                ->setName('_trace')
+                                ->setDescription('PHP stack trace'))
                 )
         );
     }

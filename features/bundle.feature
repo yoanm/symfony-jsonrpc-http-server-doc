@@ -84,13 +84,12 @@ Feature: demo symfony application
               "nullable": true,
               "required": false,
               "siblings": {
-                "previous": {
-                  "type": "string",
-                  "nullable": true,
-                  "required": false,
-                  "description": "Previous error message"
-                }
-              }
+                "_class": {"type": "string", "nullable": true, "required": false, "description": "Exception class"},
+                "_code": {"type": "integer", "nullable": true, "required": false, "description": "Exception code"},
+                "_message": {"type": "string", "nullable": true, "required": false, "description": "Exception message"},
+                "_trace": {"type": "array", "nullable": true, "required": false, "description": "PHP stack trace"}
+              },
+              "allowMissing": true
             }
           }
         }
@@ -179,13 +178,12 @@ Feature: demo symfony application
               "nullable": true,
               "required": false,
               "siblings": {
-                "previous": {
-                  "type": "string",
-                  "nullable": true,
-                  "required": false,
-                  "description": "Previous error message"
-                }
-              }
+                "_class": {"type": "string", "nullable": true, "required": false, "description": "Exception class"},
+                "_code": {"type": "integer", "nullable": true, "required": false, "description": "Exception code"},
+                "_message": {"type": "string", "nullable": true, "required": false, "description": "Exception message"},
+                "_trace": {"type": "array", "nullable": true, "required": false, "description": "PHP stack trace"}
+              },
+              "allowMissing": true
             }
           }
         }
@@ -264,13 +262,12 @@ Feature: demo symfony application
               "nullable": true,
               "required": false,
               "siblings": {
-                "previous": {
-                  "type": "string",
-                  "nullable": true,
-                  "required": false,
-                  "description": "Previous error message"
-                }
-              }
+                "_class": {"type": "string", "nullable": true, "required": false, "description": "Exception class"},
+                "_code": {"type": "integer", "nullable": true, "required": false, "description": "Exception code"},
+                "_message": {"type": "string", "nullable": true, "required": false, "description": "Exception message"},
+                "_trace": {"type": "array", "nullable": true, "required": false, "description": "PHP stack trace"}
+              },
+              "allowMissing": true
             }
           }
         }
