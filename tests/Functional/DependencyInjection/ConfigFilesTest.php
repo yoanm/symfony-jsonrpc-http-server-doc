@@ -1,6 +1,7 @@
 <?php
 namespace Tests\Functional\DependencyInjection;
 
+use Prophecy\PhpUnit\ProphecyTrait;
 use Tests\Common\DependencyInjection\AbstractTestClass;
 use Yoanm\JsonRpcServerDoc\Infra\Normalizer\ErrorDocNormalizer;
 use Yoanm\JsonRpcServerDoc\Infra\Normalizer\HttpServerDocNormalizer;
@@ -17,10 +18,13 @@ use Yoanm\SymfonyJsonRpcHttpServerDoc\Provider\RawDocProvider;
 
 /**
  * /!\ This test class does not cover JsonRpcHttpServerDocExtension, it covers yaml configuration files
- * => So no [at]covers tag !
+ * => So no [at]covers tag ! (but @coversNothing is mandatory to avoid failure)
+ * @coversNothing
  */
 class ConfigFilesTest extends AbstractTestClass
 {
+    use ProphecyTrait;
+
     /**
      * @dataProvider provideSDKInfraServiceIdAndClass
      * @dataProvider provideBundlePublicServiceIdAndClass

@@ -1,7 +1,7 @@
 Feature: demo symfony application
 
   Scenario: Check that all methods are available
-    # Ensure methods with tag have been succesfully loaded
+    # Ensure methods with tag have been successfully loaded
     When I send a "GET" request on "/my-custom-doc-endpoint" demoApp kernel endpoint
     Then I should have a "200" response from demoApp with following content:
     """

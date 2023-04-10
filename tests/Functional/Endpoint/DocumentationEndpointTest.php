@@ -2,6 +2,7 @@
 namespace Tests\Functional\Endpoint;
 
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Prophecy\Prophecy\ObjectProphecy;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,6 +15,8 @@ use Yoanm\SymfonyJsonRpcHttpServerDoc\Provider\RawDocProvider;
  */
 class DocumentationEndpointTest extends TestCase
 {
+    use ProphecyTrait;
+
     /** @var DocumentationEndpoint */
     private $endpoint;
 

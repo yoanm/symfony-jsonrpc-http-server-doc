@@ -2,6 +2,7 @@
 namespace Tests\Functional\Finder;
 
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Prophecy\Prophecy\ObjectProphecy;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Finder\NormalizedDocFinder;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Provider\DocProviderInterface;
@@ -11,6 +12,8 @@ use Yoanm\SymfonyJsonRpcHttpServerDoc\Provider\DocProviderInterface;
  */
 class NormalizedDocFinderTest extends TestCase
 {
+    use ProphecyTrait;
+
     /** @var NormalizedDocFinder */
     private $finder;
 
