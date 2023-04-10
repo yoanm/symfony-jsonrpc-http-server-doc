@@ -32,25 +32,32 @@
     "yoanm/symfony-jsonrpc-http-server-swagger-doc": "Symfony bundle for easy JSON-RPC server Swagger 2.0 documentation"
   },
   "require": {
+    "php": "^8.0",
     "ext-json": "*",
-    "php": ">=7.2",
-    "yoanm/jsonrpc-server-sdk": "^3.0",
-    "yoanm/jsonrpc-server-doc-sdk": "^0.2",
-    "yoanm/symfony-jsonrpc-http-server": "^3.0",
-    "symfony/http-foundation": "^4.0 || ^5.0",
-    "symfony/http-kernel": "^4.0 || ^5.0",
-    "symfony/config": "^4.0 || ^5.0",
-    "symfony/dependency-injection": "^4.0 || ^5.0",
-    "symfony/event-dispatcher-contracts": "^1.0 || ^2.0"
+    "symfony/config": "^4.4 || ^5.4 || ^6.0",
+    "symfony/dependency-injection": "^4.4 || ^5.4 || ^6.0",
+    "symfony/event-dispatcher-contracts": "^1.0 || ^2.0",
+    "symfony/http-foundation": "^4.4 || ^5.4 || ^6.0",
+    "symfony/http-kernel": "^4.4 || ^5.4 || ^6.0",
+    "yoanm/jsonrpc-server-doc-sdk": "^0.3 || ^1.0",
+    "yoanm/jsonrpc-server-sdk": "^3.3",
+    "yoanm/symfony-jsonrpc-http-server": "^3.3"
   },
   "require-dev": {
-    "behat/behat": "~3.0",
-    "squizlabs/php_codesniffer": "3.*",
-    "phpunit/phpunit": "^7.0 || ^8.0",
-    "matthiasnoback/symfony-dependency-injection-test": "^3.0 || ^4.0",
-    "matthiasnoback/symfony-config-test": "^3.0 || ^4.0",
-    "symfony/framework-bundle": "^4.0 || ^5.0",
-    "symfony/routing": "^4.0 || ^5.0",
-    "yoanm/php-unit-extended": "~1.0"
+    "behat/behat": "^3.9.0",
+    "dvdoug/behat-code-coverage": "^5.0",
+    "matthiasnoback/symfony-config-test": "^4.0",
+    "matthiasnoback/symfony-dependency-injection-test": "^4.0",
+    "phpspec/prophecy": "^1.15",
+    "phpspec/prophecy-phpunit": "^2.0",
+    "phpunit/php-code-coverage": "^9.2.4",
+    "phpunit/phpunit": "^9.0",
+    "squizlabs/php_codesniffer": "^3.5",
+    "symfony/framework-bundle": "^4.4 || ^5.4 || ^6.0",
+    "symfony/routing": "^4.4 || ^5.4 || ^6.0",
+    "yoanm/php-unit-extended": "^2.0.2"
+  },
+  "config": {
+    "sort-packages": true
   }
 }
