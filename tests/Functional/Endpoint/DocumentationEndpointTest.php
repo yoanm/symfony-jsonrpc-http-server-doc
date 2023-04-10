@@ -2,6 +2,7 @@
 namespace Tests\Functional\Endpoint;
 
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Prophecy\Prophecy\ObjectProphecy;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,6 +15,8 @@ use Yoanm\SymfonyJsonRpcHttpServerDoc\Provider\RawDocProvider;
  */
 class DocumentationEndpointTest extends TestCase
 {
+    use ProphecyTrait;
+
     /** @var DocumentationEndpoint */
     private $endpoint;
 
@@ -97,10 +100,10 @@ class DocumentationEndpointTest extends TestCase
         $this->assertSame('application/json', $response->headers->get('Content-Type'));
 
         // Check allowed methods
-        $this->assertSame($expectedAllowedMethodList, $response->headers->get('Allow', null, false));
+        $this->assertSame($expectedAllowedMethodList, $response->headers->get('Allow', null));
         $this->assertSame(
             $expectedAllowedMethodList,
-            $response->headers->get('Access-Control-Request-Method', null, false)
+            $response->headers->get('Access-Control-Request-Method', null)
         );
 
         // Check allowed content types

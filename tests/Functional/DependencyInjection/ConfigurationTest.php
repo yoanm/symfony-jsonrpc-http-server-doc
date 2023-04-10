@@ -3,6 +3,7 @@ namespace Tests\Functional\DependencyInjection;
 
 use Matthias\SymfonyConfigTest\PhpUnit\ConfigurationTestCaseTrait;
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\DependencyInjection\Configuration;
 
 /**
@@ -10,6 +11,7 @@ use Yoanm\SymfonyJsonRpcHttpServerDoc\DependencyInjection\Configuration;
  */
 class ConfigurationTest extends TestCase
 {
+    use ProphecyTrait;
     use ConfigurationTestCaseTrait;
 
     protected function getConfiguration()

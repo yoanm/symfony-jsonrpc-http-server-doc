@@ -1,7 +1,7 @@
 Feature: demo symfony application
 
   Scenario: Check that all methods are available
-    # Ensure methods with tag have been succesfully loaded
+    # Ensure methods with tag have been successfully loaded
     When I send a "GET" request on "/my-custom-doc-endpoint" demoApp kernel endpoint
     Then I should have a "200" response from demoApp with following content:
     """
@@ -84,13 +84,12 @@ Feature: demo symfony application
               "nullable": true,
               "required": false,
               "siblings": {
-                "previous": {
-                  "type": "string",
-                  "nullable": true,
-                  "required": false,
-                  "description": "Previous error message"
-                }
-              }
+                "_class": {"type": "string", "nullable": true, "required": false, "description": "Exception class"},
+                "_code": {"type": "integer", "nullable": true, "required": false, "description": "Exception code"},
+                "_message": {"type": "string", "nullable": true, "required": false, "description": "Exception message"},
+                "_trace": {"type": "array", "nullable": true, "required": false, "description": "PHP stack trace"}
+              },
+              "allowMissing": true
             }
           }
         }
@@ -179,13 +178,12 @@ Feature: demo symfony application
               "nullable": true,
               "required": false,
               "siblings": {
-                "previous": {
-                  "type": "string",
-                  "nullable": true,
-                  "required": false,
-                  "description": "Previous error message"
-                }
-              }
+                "_class": {"type": "string", "nullable": true, "required": false, "description": "Exception class"},
+                "_code": {"type": "integer", "nullable": true, "required": false, "description": "Exception code"},
+                "_message": {"type": "string", "nullable": true, "required": false, "description": "Exception message"},
+                "_trace": {"type": "array", "nullable": true, "required": false, "description": "PHP stack trace"}
+              },
+              "allowMissing": true
             }
           }
         }
@@ -264,13 +262,12 @@ Feature: demo symfony application
               "nullable": true,
               "required": false,
               "siblings": {
-                "previous": {
-                  "type": "string",
-                  "nullable": true,
-                  "required": false,
-                  "description": "Previous error message"
-                }
-              }
+                "_class": {"type": "string", "nullable": true, "required": false, "description": "Exception class"},
+                "_code": {"type": "integer", "nullable": true, "required": false, "description": "Exception code"},
+                "_message": {"type": "string", "nullable": true, "required": false, "description": "Exception message"},
+                "_trace": {"type": "array", "nullable": true, "required": false, "description": "PHP stack trace"}
+              },
+              "allowMissing": true
             }
           }
         }

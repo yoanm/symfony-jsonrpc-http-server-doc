@@ -3,6 +3,7 @@ namespace Tests\Functional\Creator;
 
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Prophecy\Prophecy\ObjectProphecy;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Yoanm\JsonRpcServer\Domain\JsonRpcMethodInterface;
@@ -16,6 +17,8 @@ use Yoanm\SymfonyJsonRpcHttpServerDoc\Event\ServerDocCreatedEvent;
  */
 class HttpServerDocCreatorTest extends TestCase
 {
+    use ProphecyTrait;
+
     /** @var HttpServerDocCreator */
     private $creator;
 

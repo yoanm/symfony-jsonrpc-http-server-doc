@@ -1,6 +1,7 @@
 <?php
 namespace Tests\Functional\DependencyInjection;
 
+use Prophecy\PhpUnit\ProphecyTrait;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Reference;
 use Tests\Common\DependencyInjection\AbstractTestClass;
@@ -12,6 +13,8 @@ use Yoanm\SymfonyJsonRpcHttpServerDoc\DependencyInjection\JsonRpcHttpServerDocEx
  */
 class JsonRpcHttpServerDocExtensionTest extends AbstractTestClass
 {
+    use ProphecyTrait;
+
     public function testShouldBeLoadable()
     {
         $this->loadContainer();

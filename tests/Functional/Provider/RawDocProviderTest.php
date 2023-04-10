@@ -2,6 +2,7 @@
 namespace Tests\Functional\Provider;
 
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Prophecy\Prophecy\ObjectProphecy;
 use Yoanm\JsonRpcServerDoc\Domain\Model\HttpServerDoc;
 use Yoanm\JsonRpcServerDoc\Infra\Normalizer\HttpServerDocNormalizer;
@@ -13,6 +14,8 @@ use Yoanm\SymfonyJsonRpcHttpServerDoc\Provider\RawDocProvider;
  */
 class RawDocProviderTest extends TestCase
 {
+    use ProphecyTrait;
+
     /** @var RawDocProvider */
     private $provider;
 

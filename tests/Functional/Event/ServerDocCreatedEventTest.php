@@ -2,6 +2,7 @@
 namespace Tests\Functional\Event;
 
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Prophecy\Prophecy\ObjectProphecy;
 use Yoanm\JsonRpcServerDoc\Domain\Model\ServerDoc;
 use Yoanm\SymfonyJsonRpcHttpServerDoc\Event\ServerDocCreatedEvent;
@@ -11,6 +12,8 @@ use Yoanm\SymfonyJsonRpcHttpServerDoc\Event\ServerDocCreatedEvent;
  */
 class ServerDocCreatedEventTest extends TestCase
 {
+    use ProphecyTrait;
+
     /** @var ServerDocCreatedEvent */
     private $event;
 

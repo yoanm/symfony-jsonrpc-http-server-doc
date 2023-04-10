@@ -9,7 +9,7 @@
         path="%json_rpc_http_server_doc.http_endpoint_path%/{filename}"
         methods="GET"
     >
-        <default key="_controller">json_rpc_http_server_doc.endpoint:httpGet</default>
+        <default key="_controller">json_rpc_http_server_doc.endpoint::httpGet</default>
         <default key="filename">raw.json</default>
     </route>
     <route
@@ -17,7 +17,7 @@
         path="%json_rpc_http_server_doc.http_endpoint_path%/{filename}"
         methods="OPTIONS"
     >
-        <default key="_controller">json_rpc_http_server_doc.endpoint:httpOptions</default>
+        <default key="_controller">json_rpc_http_server_doc.endpoint::httpOptions</default>
         <default key="filename">raw.json</default>
     </route>
 </routes>
