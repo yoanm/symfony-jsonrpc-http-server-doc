@@ -2,7 +2,8 @@
 
 [![License](https://img.shields.io/github/license/yoanm/symfony-jsonrpc-http-server-doc.svg)](https://github.com/yoanm/symfony-jsonrpc-http-server-doc)
 [![Code size](https://img.shields.io/github/languages/code-size/yoanm/symfony-jsonrpc-http-server-doc.svg)](https://github.com/yoanm/symfony-jsonrpc-http-server-doc)
-[![Dependabot Status](https://api.dependabot.com/badges/status?host=github\&repo=yoanm/symfony-jsonrpc-http-server-doc)](https://dependabot.com)
+![Dependabot Status](https://flat.badgen.net/github/dependabot/yoanm/symfony-jsonrpc-http-server-doc)
+![Last commit](https://badgen.net/github/last-commit/yoanm/symfony-jsonrpc-http-server-doc)
 
 [![Scrutinizer Build Status](https://img.shields.io/scrutinizer/build/g/yoanm/symfony-jsonrpc-http-server-doc.svg?label=Scrutinizer\&logo=scrutinizer)](https://scrutinizer-ci.com/g/yoanm/symfony-jsonrpc-http-server-doc/build-status/master)
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/yoanm/symfony-jsonrpc-http-server-doc/master.svg?logo=scrutinizer)](https://scrutinizer-ci.com/g/yoanm/symfony-jsonrpc-http-server-doc/?branch=master)
