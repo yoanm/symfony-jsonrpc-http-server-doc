@@ -34,27 +34,27 @@
   "require": {
     "php": "^8.0",
     "ext-json": "*",
-    "symfony/config": "^4.4 || ^5.4 || ^6.0",
-    "symfony/dependency-injection": "^4.4 || ^5.4 || ^6.0",
-    "symfony/event-dispatcher-contracts": "^1.0 || ^2.0",
-    "symfony/http-foundation": "^4.4 || ^5.4 || ^6.0",
-    "symfony/http-kernel": "^4.4 || ^5.4 || ^6.0",
+    "symfony/config": "^5.4 || ^6.4 || ^7.0",
+    "symfony/dependency-injection": "^5.4 || ^6.4 || ^7.0",
+    "symfony/event-dispatcher-contracts": "^2.0 || ^3.0",
+    "symfony/http-foundation": "^5.4 || ^6.4 || ^7.0",
+    "symfony/http-kernel": "^5.4 || ^6.4 || ^7.0",
     "yoanm/jsonrpc-server-doc-sdk": "^0.3 || ^1.0",
     "yoanm/jsonrpc-server-sdk": "^3.3",
-    "yoanm/symfony-jsonrpc-http-server": "^3.3"
+    "yoanm/symfony-jsonrpc-http-server": "^3.3 || ^4.0"
   },
   "require-dev": {
     "behat/behat": "^3.9.0,<=3.16.1",
     "dvdoug/behat-code-coverage": "^5.0",
-    "matthiasnoback/symfony-config-test": "^4.0",
-    "matthiasnoback/symfony-dependency-injection-test": "^4.0",
+    "matthiasnoback/symfony-config-test": "^4.0 || ^5.0",
+    "matthiasnoback/symfony-dependency-injection-test": "^4.0 || ^5.0",
     "phpspec/prophecy": "^1.15",
     "phpspec/prophecy-phpunit": "^2.0",
     "phpunit/php-code-coverage": "^9.2.4",
     "phpunit/phpunit": "^9.0",
     "squizlabs/php_codesniffer": "^3.5",
-    "symfony/framework-bundle": "^4.4 || ^5.4 || ^6.0",
-    "symfony/routing": "^4.4 || ^5.4 || ^6.0",
+    "symfony/framework-bundle": "^5.4 || ^6.4 || ^7.0",
+    "symfony/routing": "^5.4 || ^6.4 || ^7.0",
     "yoanm/php-unit-extended": "^2.0.2"
   },
   "config": {
