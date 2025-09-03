@@ -11,7 +11,7 @@
 
 [![CI](https://github.com/yoanm/symfony-jsonrpc-http-server-doc/actions/workflows/CI.yml/badge.svg?branch=master)](https://github.com/yoanm/symfony-jsonrpc-http-server-doc/actions/workflows/CI.yml)
 [![codecov](https://codecov.io/gh/yoanm/symfony-jsonrpc-http-server-doc/branch/master/graph/badge.svg?token=NHdwEBUFK5)](https://codecov.io/gh/yoanm/symfony-jsonrpc-http-server-doc)
-[![Symfony Versions](https://img.shields.io/badge/Symfony-v4.4%20%2F%20v5.4%2F%20v6.x-8892BF.svg?logo=github)](https://symfony.com/)
+[![Symfony Versions](https://img.shields.io/badge/Symfony-v5.4%20%2F%20v6.4%20%2F%20v7.x-8892BF.svg?logo=github)](https://symfony.com/)
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/yoanm/symfony-jsonrpc-http-server-doc.svg)](https://packagist.org/packages/yoanm/symfony-jsonrpc-http-server-doc)
 [![Packagist PHP version](https://img.shields.io/packagist/php-v/yoanm/symfony-jsonrpc-http-server-doc.svg)](https://packagist.org/packages/yoanm/symfony-jsonrpc-http-server-doc)
@@ -21,6 +21,12 @@ Symfony bundle for easy JSON-RPC server documentation
 Symfony bundle for [`yoanm/jsonrpc-server-doc-sdk`](https://github.com/yoanm/php-jsonrpc-server-doc-sdk)
 
 See [yoanm/symfony-jsonrpc-params-sf-constraints-doc](https://github.com/yoanm/symfony-jsonrpc-params-sf-constraints-doc) for params documentation generation.
+
+## Versions
+
+* Symfony v4.4/5.4/6.0 - PHP ^8.0 : `^v1.0`
+* Symfony v5.4/6.4/7.0 - PHP ^8.0 : `^v2.0`
+
 
 ## Availble formats
 
