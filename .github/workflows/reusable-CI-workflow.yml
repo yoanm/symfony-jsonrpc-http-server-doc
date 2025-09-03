@@ -130,6 +130,8 @@ jobs:
             --with "symfony/dependency-injection:${SF_CONSTRAINT}" \
             --with "symfony/http-foundation:${SF_CONSTRAINT}" \
             --with "symfony/http-kernel:${SF_CONSTRAINT}" \
+          # TODO - !! REMOVE the following - only there for test purpose until branch is merged !!
+            --with "symfony/http-kernel:dev-feature/increase-supported-versions-sf7.0" \
             ${{ matrix.pkg-extra-constraints }} \
           && make build
 
@@ -218,6 +220,8 @@ jobs:
             --with "symfony/dependency-injection:${SF_CONSTRAINT}" \
             --with "symfony/http-foundation:${SF_CONSTRAINT}" \
             --with "symfony/http-kernel:${SF_CONSTRAINT}" \
+          # TODO - !! REMOVE the following - only there for test purpose until branch is merged !!
+            --with "symfony/http-kernel:dev-feature/increase-supported-versions-sf7.0" \
           && make build
 
       - name: ComposerRequireChecker
@@ -302,6 +306,8 @@ jobs:
             symfony/dependency-injection:${SF_CONSTRAINT} \
             symfony/http-foundation:${SF_CONSTRAINT} \
             symfony/http-kernel:${SF_CONSTRAINT} \
+          # TODO - !! REMOVE the following - only there for test purpose until branch is merged !!
+            symfony/http-kernel:dev-feature/increase-supported-versions-sf7.0 \
             ${{ matrix.pkg-extra-constraints }} \
           && make build
 
